@@ -1,11 +1,25 @@
 # Colombia Financial Cards Insight
 
-
+## Summary
 The information corresponds to the number of active credit and debit 
 cards as of the reporting date, active during the month, canceled and 
 blocked, the outstanding loan portfolio balance from purchases and cash 
 advances by card network, and the purchases and withdrawals made with debit 
 cards at credit institutions.
+
+
+## Tools
+
+In this project I will use SQL to response relevant questions around the dataset that will give you an important insight into the evolution of different important accounts related to the debit and credit card universe in Colombia financial sector.
+
+- Used relational database
+  - [PostgreSQL](https://www.postgresql.org/)
+
+
+![Debit & Credit Cards in Colombia](https://imgs.search.brave.com/2arTFg-iQNavLBAVFX0_ukwFwIC5mJMCLIdzKbp7nrc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZW5lcy5wb3J0YWZv/bGlvLmNvL2ZpbGVz/L2ltYWdlXzEyMDBf/NjAwL3VwbG9hZHMv/MjAyMy8wNy8zMS82/NGM4MjRkODRlNDZj/LmpwZWc)
+
+
+Here is a data description of the columns you may find helpful.
 
 | Column Name      | API Field Name   | Data Type        | Description |
 |------------------|------------------|------------------|-------------|
