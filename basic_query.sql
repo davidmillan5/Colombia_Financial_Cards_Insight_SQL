@@ -476,3 +476,424 @@ ORDER BY
 LIMIT
 	5;
 
+---
+
+WITH total_num_trx_exterior_por_tarjeta_2025 AS (
+SELECT
+	DISTINCT(num_trx_exterior_anual.tipoentidad) AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_num_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2025 AND num_total_tc_anual.year = 2025
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	10),
+
+total_num_trx_exterior_por_tarjeta_2024 AS (
+SELECT
+	DISTINCT(num_trx_exterior_anual.tipoentidad) AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_num_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2024 AND num_total_tc_anual.year = 2024
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	10)
+
+
+SELECT
+	*
+FROM
+	total_num_trx_exterior_por_tarjeta_2025
+LEFT JOIN
+	total_num_trx_exterior_por_tarjeta_2024
+ON
+	total_num_trx_exterior_por_tarjeta_2025.nombreentidad = total_num_trx_exterior_por_tarjeta_2024.nombreentidad
+
+
+WITH total_num_trx_exterior_por_tarjeta_2025 AS (
+SELECT
+	DISTINCT(num_trx_exterior_anual.tipoentidad) AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_num_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2025 AND num_total_tc_anual.year = 2025
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	10),
+
+total_num_trx_exterior_por_tarjeta_2024 AS (
+SELECT
+	DISTINCT(num_trx_exterior_anual.tipoentidad) AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_num_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2024 AND num_total_tc_anual.year = 2024
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	10),
+total_num_trx_exterior_por_tarjeta_2023 AS (
+SELECT
+	DISTINCT(num_trx_exterior_anual.tipoentidad) AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_num_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2023 AND num_total_tc_anual.year = 2023
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	10)
+
+
+SELECT
+	*
+FROM
+	total_num_trx_exterior_por_tarjeta_2025
+LEFT JOIN
+	total_num_trx_exterior_por_tarjeta_2024
+ON
+	total_num_trx_exterior_por_tarjeta_2025.codigoentidad = total_num_trx_exterior_por_tarjeta_2024.codigoentidad
+LEFT JOIN
+	total_num_trx_exterior_por_tarjeta_2023
+ON
+	total_num_trx_exterior_por_tarjeta_2024.codigoentidad = total_num_trx_exterior_por_tarjeta_2023.codigoentidad
+
+
+WITH total_num_trx_exterior_por_tarjeta_2025 AS (
+SELECT
+	DISTINCT(num_trx_exterior_anual.tipoentidad) AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_num_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2025 AND num_total_tc_anual.year = 2025
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	10),
+
+total_num_trx_exterior_por_tarjeta_2024 AS (
+SELECT
+	DISTINCT(num_trx_exterior_anual.tipoentidad) AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_num_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2024 AND num_total_tc_anual.year = 2024
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	10),
+total_num_trx_exterior_por_tarjeta_2023 AS (
+SELECT
+	DISTINCT(num_trx_exterior_anual.tipoentidad) AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_num_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2023 AND num_total_tc_anual.year = 2023
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	10)
+
+
+SELECT
+	total_num_trx_exterior_por_tarjeta_2025.nombreentidad AS nombreentidad,
+	total_num_trx_exterior_por_tarjeta_2025.tipoentidad AS tipoentidad,
+	total_num_trx_exterior_por_tarjeta_2025.codigoentidad AS codigoentidad,
+	total_num_trx_exterior_por_tarjeta_2025.year AS year_2025,
+	total_num_trx_exterior_por_tarjeta_2025.total_tarjetas_activas_anual AS total_tarjetas_activas_anual_2025,
+	total_num_trx_exterior_por_tarjeta_2025.total_num_anual_compras_ext_tarjetas AS total_num_anual_compras_ext_tarjetas_2025,
+	total_num_trx_exterior_por_tarjeta_2025.total_num_trx_exterior_por_tarjeta AS total_num_trx_exterior_por_tarjeta_2025,
+	total_num_trx_exterior_por_tarjeta_2024.year AS year_2024,
+	total_num_trx_exterior_por_tarjeta_2024.total_tarjetas_activas_anual AS total_tarjetas_activas_anual_2024,
+	total_num_trx_exterior_por_tarjeta_2024.total_num_anual_compras_ext_tarjetas AS total_num_anual_compras_ext_tarjetas_2024,
+	total_num_trx_exterior_por_tarjeta_2024.total_num_trx_exterior_por_tarjeta AS total_num_trx_exterior_por_tarjeta_2024,
+	total_num_trx_exterior_por_tarjeta_2023.year AS year_2023,
+	total_num_trx_exterior_por_tarjeta_2023.total_tarjetas_activas_anual AS total_tarjetas_activas_anual_2023,
+	total_num_trx_exterior_por_tarjeta_2023.total_num_anual_compras_ext_tarjetas AS total_num_anual_compras_ext_tarjetas_2023,
+	total_num_trx_exterior_por_tarjeta_2023.total_num_trx_exterior_por_tarjeta AS total_num_trx_exterior_por_tarjeta_2023
+	
+FROM
+	total_num_trx_exterior_por_tarjeta_2025
+LEFT JOIN
+	total_num_trx_exterior_por_tarjeta_2024
+ON
+	total_num_trx_exterior_por_tarjeta_2025.codigoentidad = total_num_trx_exterior_por_tarjeta_2024.codigoentidad
+LEFT JOIN
+	total_num_trx_exterior_por_tarjeta_2023
+ON
+	total_num_trx_exterior_por_tarjeta_2024.codigoentidad = total_num_trx_exterior_por_tarjeta_2023.codigoentidad
+
+--- updated 
+
+WITH total_num_trx_exterior_por_tarjeta_2025 AS (
+SELECT
+	num_trx_exterior_anual.tipoentidad AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_num_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2025 AND num_total_tc_anual.year = 2025
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	10),
+
+total_num_trx_exterior_por_tarjeta_2024 AS (
+SELECT
+	num_trx_exterior_anual.tipoentidad AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_num_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2024 AND num_total_tc_anual.year = 2024
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	10),
+total_num_trx_exterior_por_tarjeta_2023 AS (
+SELECT
+	num_trx_exterior_anual.tipoentidad AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_num_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2023 AND num_total_tc_anual.year = 2023
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	10)
+
+
+SELECT
+	total_num_trx_exterior_por_tarjeta_2025.nombreentidad AS nombreentidad,
+	total_num_trx_exterior_por_tarjeta_2025.tipoentidad AS tipoentidad,
+	total_num_trx_exterior_por_tarjeta_2025.codigoentidad AS codigoentidad,
+	total_num_trx_exterior_por_tarjeta_2025.year AS year_2025,
+	total_num_trx_exterior_por_tarjeta_2025.total_tarjetas_activas_anual AS total_tarjetas_activas_anual_2025,
+	total_num_trx_exterior_por_tarjeta_2025.total_num_anual_compras_ext_tarjetas AS total_num_anual_compras_ext_tarjetas_2025,
+	total_num_trx_exterior_por_tarjeta_2025.total_num_trx_exterior_por_tarjeta AS total_num_trx_exterior_por_tarjeta_2025,
+	total_num_trx_exterior_por_tarjeta_2024.year AS year_2024,
+	total_num_trx_exterior_por_tarjeta_2024.total_tarjetas_activas_anual AS total_tarjetas_activas_anual_2024,
+	total_num_trx_exterior_por_tarjeta_2024.total_num_anual_compras_ext_tarjetas AS total_num_anual_compras_ext_tarjetas_2024,
+	total_num_trx_exterior_por_tarjeta_2024.total_num_trx_exterior_por_tarjeta AS total_num_trx_exterior_por_tarjeta_2024,
+	total_num_trx_exterior_por_tarjeta_2023.year AS year_2023,
+	total_num_trx_exterior_por_tarjeta_2023.total_tarjetas_activas_anual AS total_tarjetas_activas_anual_2023,
+	total_num_trx_exterior_por_tarjeta_2023.total_num_anual_compras_ext_tarjetas AS total_num_anual_compras_ext_tarjetas_2023,
+	total_num_trx_exterior_por_tarjeta_2023.total_num_trx_exterior_por_tarjeta AS total_num_trx_exterior_por_tarjeta_2023
+	
+FROM
+	total_num_trx_exterior_por_tarjeta_2025
+LEFT JOIN
+	total_num_trx_exterior_por_tarjeta_2024
+ON
+	total_num_trx_exterior_por_tarjeta_2025.codigoentidad = total_num_trx_exterior_por_tarjeta_2024.codigoentidad
+LEFT JOIN
+	total_num_trx_exterior_por_tarjeta_2023
+ON
+	total_num_trx_exterior_por_tarjeta_2025.codigoentidad = total_num_trx_exterior_por_tarjeta_2023.codigoentidad
+
+
+WITH total_num_trx_exterior_por_tarjeta_2025 AS (
+SELECT
+	num_trx_exterior_anual.tipoentidad AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_num_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2025 AND num_total_tc_anual.year = 2025
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	10),
+
+total_num_trx_exterior_por_tarjeta_2024 AS (
+SELECT
+	num_trx_exterior_anual.tipoentidad AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_num_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2024 AND num_total_tc_anual.year = 2024
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	10),
+total_num_trx_exterior_por_tarjeta_2023 AS (
+SELECT
+	num_trx_exterior_anual.tipoentidad AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_num_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2023 AND num_total_tc_anual.year = 2023
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	10)
+
+
+SELECT
+	total_num_trx_exterior_por_tarjeta_2025.nombreentidad AS nombreentidad,
+	total_num_trx_exterior_por_tarjeta_2025.tipoentidad AS tipoentidad,
+	total_num_trx_exterior_por_tarjeta_2025.codigoentidad AS codigoentidad,
+	total_num_trx_exterior_por_tarjeta_2025.year AS year_2025,
+	total_num_trx_exterior_por_tarjeta_2025.total_tarjetas_activas_anual AS total_tarjetas_activas_anual_2025,
+	total_num_trx_exterior_por_tarjeta_2025.total_num_anual_compras_ext_tarjetas AS total_num_anual_compras_ext_tarjetas_2025,
+	total_num_trx_exterior_por_tarjeta_2025.total_num_trx_exterior_por_tarjeta AS total_num_trx_exterior_por_tarjeta_2025,
+	total_num_trx_exterior_por_tarjeta_2024.year AS year_2024,
+	total_num_trx_exterior_por_tarjeta_2024.total_tarjetas_activas_anual AS total_tarjetas_activas_anual_2024,
+	total_num_trx_exterior_por_tarjeta_2024.total_num_anual_compras_ext_tarjetas AS total_num_anual_compras_ext_tarjetas_2024,
+	total_num_trx_exterior_por_tarjeta_2024.total_num_trx_exterior_por_tarjeta AS total_num_trx_exterior_por_tarjeta_2024,
+	total_num_trx_exterior_por_tarjeta_2023.year AS year_2023,
+	total_num_trx_exterior_por_tarjeta_2023.total_tarjetas_activas_anual AS total_tarjetas_activas_anual_2023,
+	total_num_trx_exterior_por_tarjeta_2023.total_num_anual_compras_ext_tarjetas AS total_num_anual_compras_ext_tarjetas_2023,
+	total_num_trx_exterior_por_tarjeta_2023.total_num_trx_exterior_por_tarjeta AS total_num_trx_exterior_por_tarjeta_2023
+	
+FROM
+	total_num_trx_exterior_por_tarjeta_2025
+LEFT JOIN
+	total_num_trx_exterior_por_tarjeta_2024
+ON
+	total_num_trx_exterior_por_tarjeta_2025.codigoentidad = total_num_trx_exterior_por_tarjeta_2024.codigoentidad
+LEFT JOIN
+	total_num_trx_exterior_por_tarjeta_2023
+ON
+	total_num_trx_exterior_por_tarjeta_2025.codigoentidad = total_num_trx_exterior_por_tarjeta_2023.codigoentidad
