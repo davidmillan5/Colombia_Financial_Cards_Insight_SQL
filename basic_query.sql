@@ -369,3 +369,110 @@ ORDER BY
 	active_cc DESC
 LIMIT
 	5;
+
+
+SELECT
+	vw_yearly_active_credit_cards.nombreentidad,
+	vw_yearly_active_credit_cards.tipoentidad,
+	vw_yearly_active_credit_cards.codigoentidad,
+	vw_yearly_active_credit_cards.year,
+	vw_yearly_active_credit_cards.total_tarjetas AS tarjetasdecreditoactivas,
+	vw_yearly_domestic_cc_cash_adv_txn.total_tarjetas AS transaccionesanuales,
+	vw_yearly_domestic_cc_cash_adv_txn.total_tarjetas/ vw_yearly_active_credit_cards.total_tarjetas AS promediotraccionesanualesportarjeta
+FROM 
+	vw_yearly_active_credit_cards
+LEFT JOIN 
+	vw_yearly_domestic_cc_cash_adv_txn
+ON
+	vw_yearly_active_credit_cards.nombreentidad = vw_yearly_domestic_cc_cash_adv_txn.nombreentidad
+WHERE
+	vw_yearly_active_credit_cards.year = 2025
+	AND vw_yearly_domestic_cc_cash_adv_txn.year = 2025
+ORDER BY
+	tarjetasdecreditoactivas DESC
+LIMIT
+	5;
+
+
+SELECT
+	DISTINCT(num_trx_exterior_anual.tipoentidad) AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_monto_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+
+----
+
+SELECT
+	DISTINCT(num_trx_exterior_anual.tipoentidad) AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_monto_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2025 AND num_total_tc_anual.year = 2025
+ORDER BY
+	total_tarjetas_activas_anual DESC
+LIMIT
+	5;
+
+
+SELECT
+	DISTINCT(num_trx_exterior_anual.tipoentidad) AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_monto_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2025 AND num_total_tc_anual.year = 2025
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	5;
+
+
+SELECT
+	DISTINCT(num_trx_exterior_anual.tipoentidad) AS tipoentidad,
+	num_trx_exterior_anual.codigoentidad AS codigoentidad,
+	num_trx_exterior_anual.nombreentidad AS nombreentidad,
+	num_trx_exterior_anual.year AS year,
+	num_total_tc_anual.total_tarjetas AS total_tarjetas_activas_anual,
+	num_trx_exterior_anual.total_tarjetas AS total_num_anual_compras_ext_tarjetas,
+	(num_trx_exterior_anual.total_tarjetas / num_total_tc_anual.total_tarjetas) AS total_num_trx_exterior_por_tarjeta
+FROM
+	vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS num_trx_exterior_anual
+LEFT JOIN
+	vw_num_total_tarjetas_credito_vigentes_ano AS num_total_tc_anual
+ON
+	num_trx_exterior_anual.nombreentidad = num_total_tc_anual.nombreentidad
+WHERE
+	num_trx_exterior_anual.year = 2025 AND num_total_tc_anual.year = 2025
+ORDER BY
+	total_tarjetas_activas_anual DESC, total_num_trx_exterior_por_tarjeta DESC
+LIMIT
+	5;
+
