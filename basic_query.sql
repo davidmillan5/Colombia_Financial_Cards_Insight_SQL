@@ -897,3 +897,108 @@ LEFT JOIN
 	total_num_trx_exterior_por_tarjeta_2023
 ON
 	total_num_trx_exterior_por_tarjeta_2025.codigoentidad = total_num_trx_exterior_por_tarjeta_2023.codigoentidad
+
+
+-- polish trx avances por tarjetas 2025 SELECT
+	tarjetas_vigentes.tipoentidad,
+	tarjetas_vigentes.codigoentidad,
+	tarjetas_vigentes.nombreentidad,
+	tarjetas_vigentes.year,
+	tarjetas_vigentes.total_tarjetas AS total_tarjetas_credito_vigentes,
+	trx_por_avances_tarjetas.total_tarjetas AS total_trx_por_tarjetas_credito_avances_nacionales,
+	trx_por_avances_tarjetas.total_tarjetas/tarjetas_vigentes.total_tarjetas AS total_trx_avances_por_tarjeta_credito_vigente_2025
+FROM
+	vw_num_total_tarjetas_credito_vigentes_anual AS tarjetas_vigentes
+LEFT JOIN
+	vw_num_trx_por_avances_nacional_tarjcredito_anual AS trx_por_avances_tarjetas
+ON
+	tarjetas_vigentes.codigoentidad = trx_por_avances_tarjetas.codigoentidad
+WHERE
+	(tarjetas_vigentes.year 
+	IN (2025) AND trx_por_avances_tarjetas.year IN (2025))
+ORDER BY
+	trx_por_avances_tarjetas.total_tarjetas DESC
+LIMIT
+	5
+
+
+--- including cte #1
+
+WITH trx_avances_por_tarjeta_credito_vigente_2025 AS (
+
+SELECT
+	ROUND(trx_por_avances_tarjetas.total_tarjetas/tarjetas_vigentes.total_tarjetas,1) AS total_trx_avances_por_tarjeta_credito_vigente_2025,
+	tarjetas_vigentes.tipoentidad,
+	tarjetas_vigentes.codigoentidad,
+	tarjetas_vigentes.nombreentidad,
+	tarjetas_vigentes.year,
+	tarjetas_vigentes.total_tarjetas AS total_tarjetas_credito_vigentes,
+	trx_por_avances_tarjetas.total_tarjetas AS total_trx_por_tarjetas_credito_avances_nacionales
+FROM
+	vw_num_total_tarjetas_credito_vigentes_anual AS tarjetas_vigentes
+LEFT JOIN
+	vw_num_trx_por_avances_nacional_tarjcredito_anual AS trx_por_avances_tarjetas
+ON
+	tarjetas_vigentes.codigoentidad = trx_por_avances_tarjetas.codigoentidad 
+	AND
+	tarjetas_vigentes.nombreentidad = trx_por_avances_tarjetas.nombreentidad
+WHERE
+	(tarjetas_vigentes.year 
+	IN (2025) AND trx_por_avances_tarjetas.year IN (2025)))
+
+SELECT 
+	tipoentidad,
+    codigoentidad,
+    nombreentidad,
+    year,
+    total_tarjetas_credito_vigentes,
+    total_trx_por_tarjetas_credito_avances_nacionales,
+    total_trx_avances_por_tarjeta_credito_vigente_2025
+FROM
+	trx_avances_por_tarjeta_credito_vigente_2025
+ORDER BY
+	total_tarjetas_credito_vigentes DESC
+LIMIT 
+	5;
+
+
+---- 
+
+WITH vars AS (
+    SELECT 
+        2025 AS target_year_1,
+        2024 AS target_year_2,
+        2023 AS target_year_3,
+        2022 AS target_year_4,
+        2021 AS target_year_5
+),
+base AS (
+    SELECT
+        tv.tipoentidad,
+        tv.codigoentidad,
+        tv.nombreentidad,
+        tv.year,
+        tv.total_tarjetas AS total_tarjetas_credito_vigentes,
+        trx.total_tarjetas AS total_trx_por_tarjetas_credito_avances_nacionales,
+        ROUND(trx.total_tarjetas / tv.total_tarjetas, 1) AS total_trx_avances_por_tarjeta_credito_vigente,
+        RANK() OVER (PARTITION BY tv.year ORDER BY tv.total_tarjetas DESC) AS rnk
+    FROM vw_num_total_tarjetas_credito_vigentes_anual AS tv
+    LEFT JOIN vw_num_trx_por_avances_nacional_tarjcredito_anual AS trx
+        ON tv.codigoentidad = trx.codigoentidad
+        AND tv.nombreentidad = trx.nombreentidad
+        AND tv.year = trx.year  
+    CROSS JOIN vars
+    WHERE tv.year IN (vars.target_year_1, vars.target_year_2, vars.target_year_3, vars.target_year_4, vars.target_year_5)
+)
+SELECT
+    tipoentidad,
+    codigoentidad,
+    nombreentidad,
+    year,
+    total_tarjetas_credito_vigentes,
+    total_trx_por_tarjetas_credito_avances_nacionales,
+    total_trx_avances_por_tarjeta_credito_vigente,
+    rnk
+FROM base
+WHERE rnk <= 5
+ORDER BY year DESC, rnk ASC;

@@ -200,3 +200,44 @@ Here is a data description of the columns you may find helpful.
 | 120 | Tarifa Interbancaria de Intercambio - TII por Tarjeta Master Débito |
 | 125 | Tarifa Interbancaria de Intercambio - TII por Tarjeta Débito Electrón |
 | 130 | Tarifa Interbancaria de Intercambio - TII por Tarjeta Débito Maestro |
+
+
+## Analysis 
+
+### Insights regarding the amount of valid credit cards by year releated to the amount of trx and amount of advances the last 5 years after COVID-19
+
+Ranking top 5 financial entity from 2025 to 2021 by year on the amount of trx for advances with credit cards.
+
+
+| tipoentidad | codigoentidad | nombreentidad | year | total_tarjetas_credito_vigentes | total_trx_por_tarjetas_credito_avances_nacionales | total_trx_avances_por_tarjeta_credito_vigente | rnk |
+|---|---|---|---|---|---|---|---|
+| 1 | 7 | BANCOLOMBIA S.A. | 2025 | 935,540.00 | 8,412,194.00 | 9.0 | 1 |
+| 4 | 128 | NU O NU FINANCIERA | 2025 | 462,628.00 | 2,786,100.00 | 6.0 | 2 |
+| 1 | 13 | BANCO BILBAO VIZCAYA ARGENTARIA COLOMBIA S.A. BBVA COLOMBIA | 2025 | 361,480.00 | 3,805,106.00 | 10.5 | 3 |
+| 1 | 39 | BANCO DAVIVIENDA S.A. | 2025 | 352,616.00 | 3,445,578.00 | 9.8 | 4 |
+| 1 | 56 | BANCO FALABELLA S.A. | 2025 | 236,564.00 | 1,049,806.00 | 4.4 | 5 |
+| 1 | 7 | BANCOLOMBIA S.A. | 2024 | 579,581.00 | 8,160,599.00 | 14.1 | 1 |
+| 1 | 42 | SCOTIABANK COLPATRIA S.A. | 2024 | 270,486.00 | 665,903.00 | 2.5 | 2 |
+| 1 | 39 | BANCO DAVIVIENDA S.A. | 2024 | 264,387.00 | 3,614,267.00 | 13.7 | 3 |
+| 1 | 1 | BANCO DE BOGOTA S. A. | 2024 | 215,596.00 | 2,119,765.00 | 9.8 | 4 |
+| 1 | 13 | BANCO BILBAO VIZCAYA ARGENTARIA COLOMBIA S.A. BBVA COLOMBIA | 2024 | 172,452.00 | 3,240,454.00 | 18.8 | 5 |
+| 1 | 7 | BANCOLOMBIA S.A. | 2023 | 582,907.00 | 10,075,509.00 | 17.3 | 1 |
+| 1 | 1 | BANCO DE BOGOTA S. A. | 2023 | 531,773.00 | 2,543,933.00 | 4.8 | 2 |
+| 4 | 26 | TUYA S.A C.F | 2023 | 418,185.00 | 2,689,464.00 | 6.4 | 3 |
+| 1 | 39 | BANCO DAVIVIENDA S.A. | 2023 | 362,840.00 | 3,779,386.00 | 10.4 | 4 |
+| 1 | 42 | SCOTIABANK COLPATRIA S.A. | 2023 | 318,760.00 | 756,271.00 | 2.4 | 5 |
+| 1 | 7 | BANCOLOMBIA S.A. | 2022 | 1,076,452.00 | 9,881,397.00 | 9.2 | 1 |
+| 4 | 26 | TUYA S.A C.F | 2022 | 673,154.00 | 4,538,134.00 | 6.7 | 2 |
+| 1 | 1 | BANCO DE BOGOTA S. A. | 2022 | 574,421.00 | 2,367,329.00 | 4.1 | 3 |
+| 1 | 56 | BANCO FALABELLA S.A. | 2022 | 525,407.00 | 1,699,712.00 | 3.2 | 4 |
+| 1 | 39 | BANCO DAVIVIENDA S.A. | 2022 | 507,572.00 | 3,156,823.00 | 6.2 | 5 |
+| 1 | 7 | BANCOLOMBIA S.A. | 2021 | 791,123.00 | 7,029,845.00 | 8.9 | 1 |
+| 1 | 56 | BANCO FALABELLA S.A. | 2021 | 544,857.00 | 873,766.00 | 1.6 | 2 |
+| 4 | 26 | TUYA S.A C.F | 2021 | 530,319.00 | 3,426,152.00 | 6.5 | 3 |
+| 1 | 1 | BANCO DE BOGOTA S. A. | 2021 | 406,473.00 | 1,841,348.00 | 4.5 | 4 |
+| 1 | 42 | SCOTIABANK COLPATRIA S.A. | 2021 | 362,461.00 | 901,627.00 | 2.5 | 5 |
+
+From the information that we gather and analyze I have the following 5 insights:
+
+1. The amount of trx of credit card avances in 2025(until October) are at levels of 2021 which is important to see ho the 2025 ends and if it is a trend towards a lesser need of using cash money.
+2. From 2021 until 2024 the trend based on the ranking and based on the leader Bancolombia show that the avergae customer make more than one advance with their credit card each month which can be study further and find out if their is a need for advancing the biweekly payment from employees and create products such as MyPay by Chime which allows access to a portion of the earned wages from customers before their regular payday, and establish a product or services with those characteristics to help employees manage their own financial needs and goals.
