@@ -204,9 +204,8 @@ Here is a data description of the columns you may find helpful.
 
 ## Analysis 
 
-### Insights regarding the amount of valid credit cards by year releated to the amount of trx and amount of advances the last 5 years after COVID-19
 
-Ranking top 5 financial entity from 2025 to 2021 by year on the amount of trx for advances with credit cards.
+### Ranking top 5 financial entity from 2025 to 2021 by year on the amount of trx for advances with credit cards.
 
 
 | tipoentidad | codigoentidad | nombreentidad | year | total_tarjetas_credito_vigentes | total_trx_por_tarjetas_credito_avances_nacionales | total_trx_avances_por_tarjeta_credito_vigente | rnk |
@@ -241,3 +240,37 @@ From the information that we gather and analyze I have the following 5 insights:
 
 1. The amount of trx of credit card avances in 2025(until October) are at levels of 2021 which is important to see ho the 2025 ends and if it is a trend towards a lesser need of using cash money.
 2. From 2021 until 2024 the trend based on the ranking and based on the leader Bancolombia show that the avergae customer make more than one advance with their credit card each month which can be study further and find out if their is a need for advancing the biweekly payment from employees and create products such as MyPay by Chime which allows access to a portion of the earned wages from customers before their regular payday, and establish a product or services with those characteristics to help employees manage their own financial needs and goals.
+3. There is an important demand for credit cards in the financial market in Colombia, as NU shows. As October 2025 these Fintech ranks number two in overall active credict card nationwide which means that the consumner is demanding this kind of products and also that new players can challenge the well establish banks and win a broad share of the market.
+4. For the market Leader Bancolombia we see that after 2021 the year after COVID-19 the valid amount of credit cards in the market have been growing comming from 791123 valid credit cards by december 2021 to 935540 valids credit cards to October 2025 which represent a growth of 18.25%. 
+5. Banco Falabella and Tuya from 2021 to 2025 have been in the ranking of top 5 valid credit cards 3 out 5 years which means that the retailer players are ghuges players in the country and their related offer of credit attach to a credit card represent a great hook to gain clients in the country.
+
+
+### Market Leaders in International Credit Card Purchases from Colombia
+
+| tipoentidad | codigoentidad | nombreentidad                                                         | year | num_trx     | total_tarjetas | ratio | ranking |
+|------------|--------------|-----------------------------------------------------------------------|------|------------|---------------|-------|---------|
+| 1 | 7   | BANCOLOMBIA S.A. | 2025 | 935540.00 | 26634592.00 | 28.5 | 1 |
+| 4 | 128 | NU O NU FINANCIERA | 2025 | 462628.00 | 8299546.00 | 17.9 | 2 |
+| 1 | 13  | BANCO BILBAO VIZCAYA ARGENTARIA COLOMBIA S.A. BBVA COLOMBIA | 2025 | 361480.00 | 4032326.00 | 11.2 | 3 |
+| 1 | 39  | BANCO DAVIVIENDA S.A. | 2025 | 352616.00 | 14622137.00 | 41.5 | 4 |
+| 1 | 56  | BANCO FALABELLA S.A. | 2025 | 236564.00 | 4256396.00 | 18.0 | 5 |
+| 1 | 7   | BANCOLOMBIA S.A. | 2024 | 579581.00 | 25716346.00 | 44.4 | 1 |
+| 1 | 42  | SCOTIABANK COLPATRIA S.A. | 2024 | 270486.00 | 6107517.00 | 22.6 | 2 |
+| 1 | 39  | BANCO DAVIVIENDA S.A. | 2024 | 264387.00 | 14298839.00 | 54.1 | 3 |
+| 1 | 1   | BANCO DE BOGOTA S. A. | 2024 | 215596.00 | 4728973.00 | 21.9 | 4 |
+| 1 | 13  | BANCO BILBAO VIZCAYA ARGENTARIA COLOMBIA S.A. BBVA COLOMBIA | 2024 | 172452.00 | 3975856.00 | 23.1 | 5 |
+| 1 | 7   | BANCOLOMBIA S.A. | 2023 | 582907.00 | 22712124.00 | 39.0 | 1 |
+| 1 | 1   | BANCO DE BOGOTA S. A. | 2023 | 531773.00 | 4100471.00 | 7.7 | 2 |
+| 4 | 26  | TUYA S.A C.F | 2023 | 418185.00 | 1176061.00 | 2.8 | 3 |
+| 1 | 39  | BANCO DAVIVIENDA S.A. | 2023 | 362840.00 | 11263672.00 | 31.0 | 4 |
+| 1 | 42  | SCOTIABANK COLPATRIA S.A. | 2023 | 318760.00 | 5538035.00 | 17.4 | 5 |
+| 1 | 7   | BANCOLOMBIA S.A. | 2022 | 1076452.00 | 23437015.00 | 21.8 | 1 |
+| 4 | 26  | TUYA S.A C.F | 2022 | 673154.00 | 1296427.00 | 1.9 | 2 |
+| 1 | 1   | BANCO DE BOGOTA S. A. | 2022 | 574421.00 | 4310674.00 | 7.5 | 3 |
+| 1 | 56  | BANCO FALABELLA S.A. | 2022 | 525407.00 | 4139471.00 | 7.9 | 4 |
+| 1 | 39  | BANCO DAVIVIENDA S.A. | 2022 | 507572.00 | 10831991.00 | 21.3 | 5 |
+| 1 | 7   | BANCOLOMBIA S.A. | 2021 | 791123.00 | 20168799.00 | 25.5 | 1 |
+| 1 | 56  | BANCO FALABELLA S.A. | 2021 | 544857.00 | 3088535.00 | 5.7 | 2 |
+| 4 | 26  | TUYA S.A C.F | 2021 | 530319.00 | 896582.00 | 1.7 | 3 |
+| 1 | 1   | BANCO DE BOGOTA S. A. | 2021 | 406473.00 | 3851686.00 | 9.5 | 4 |
+| 1 | 42  | SCOTIABANK COLPATRIA S.A. | 2021 | 362461.00 | 6003521.00 | 16.6 | 5 |

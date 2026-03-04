@@ -1002,3 +1002,47 @@ SELECT
 FROM base
 WHERE rnk <= 5
 ORDER BY year DESC, rnk ASC;
+
+
+
+
+-- Market Leaders in International Credit Card Purchases from Colombia
+
+WITH vars AS (
+    SELECT 
+        2025 AS target_year_1,
+        2024 AS target_year_2,
+        2023 AS target_year_3,
+        2022 AS target_year_4,
+        2021 AS target_year_5
+),
+base AS (
+    SELECT
+        tv.tipoentidad,
+        tv.codigoentidad,
+        tv.nombreentidad,
+        tv.year,
+        tv.total_tarjetas AS total_tarjetas_credito_vigentes,
+        trx_compras_ext.total_tarjetas AS total_trx_por_tarjetas_credito_compras_internacionales,
+        ROUND(trx_compras_ext.total_tarjetas / tv.total_tarjetas, 1) AS total_trx_compras_internacionales_por_tarjeta_credito_vigente,
+        RANK() OVER (PARTITION BY tv.year ORDER BY tv.total_tarjetas DESC) AS rnk
+    FROM vw_num_total_tarjetas_credito_vigentes_anual AS tv
+    LEFT JOIN vw_num_trx_por_compras_exterior_con_tarjetacredito_anual AS trx_compras_ext
+        ON tv.codigoentidad = trx_compras_ext.codigoentidad
+        AND tv.nombreentidad = trx_compras_ext.nombreentidad
+        AND tv.year = trx_compras_ext.year  
+    CROSS JOIN vars
+    WHERE tv.year IN (vars.target_year_1, vars.target_year_2, vars.target_year_3, vars.target_year_4, vars.target_year_5)
+)
+SELECT
+    tipoentidad,
+    codigoentidad,
+    nombreentidad,
+    year,
+    total_tarjetas_credito_vigentes,
+    total_trx_por_tarjetas_credito_compras_internacionales,
+    total_trx_compras_internacionales_por_tarjeta_credito_vigente,
+    rnk
+FROM base
+WHERE rnk <= 5
+ORDER BY year DESC, rnk ASC;
