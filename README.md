@@ -270,7 +270,7 @@ From the information that we gather and analyze I have the following 5 insights:
 | 1 | 56  | BANCO FALABELLA S.A. | 2022 | 525407.00 | 4139471.00 | 7.9 | 4 |
 | 1 | 39  | BANCO DAVIVIENDA S.A. | 2022 | 507572.00 | 10831991.00 | 21.3 | 5 |
 | 1 | 7   | BANCOLOMBIA S.A. | 2021 | 791123.00 | 20168799.00 | 25.5 | 1 |
-| 1 | 56  | BANCO FALABELLA S.A. | 2021 | 544857.00 | 3088535.00 | 5.7 | 2 |
+| 1 | 56  | BANCO FALABELLA S.A. | 2021 | 544857.00 | 3088535.00 | 5.7 s| 2 |
 | 4 | 26  | TUYA S.A C.F | 2021 | 530319.00 | 896582.00 | 1.7 | 3 |
 | 1 | 1   | BANCO DE BOGOTA S. A. | 2021 | 406473.00 | 3851686.00 | 9.5 | 4 |
 | 1 | 42  | SCOTIABANK COLPATRIA S.A. | 2021 | 362461.00 | 6003521.00 | 16.6 | 5 |
